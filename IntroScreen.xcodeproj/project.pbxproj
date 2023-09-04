@@ -11,6 +11,7 @@
 		C9394A832AA513DF00EBCF42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9394A822AA513DF00EBCF42 /* Assets.xcassets */; };
 		C9394A862AA513DF00EBCF42 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9394A852AA513DF00EBCF42 /* Preview Assets.xcassets */; };
 		C9394A8F2AA5171100EBCF42 /* IntroUi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9394A8E2AA5171100EBCF42 /* IntroUi.swift */; };
+		C99389F42AA63218004D9E4C /* Outfit-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C99389F32AA63218004D9E4C /* Outfit-VariableFont_wght.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		C9394A822AA513DF00EBCF42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9394A852AA513DF00EBCF42 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C9394A8E2AA5171100EBCF42 /* IntroUi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroUi.swift; sourceTree = "<group>"; };
+		C99389F32AA63218004D9E4C /* Outfit-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Outfit-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		C9394A7D2AA513DD00EBCF42 /* IntroScreen */ = {
 			isa = PBXGroup;
 			children = (
+				C99389F22AA631C7004D9E4C /* Font */,
 				C9394A7E2AA513DD00EBCF42 /* IntroScreenApp.swift */,
 				C9394A8E2AA5171100EBCF42 /* IntroUi.swift */,
 				C9394A822AA513DF00EBCF42 /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				C9394A852AA513DF00EBCF42 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C99389F22AA631C7004D9E4C /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				C99389F32AA63218004D9E4C /* Outfit-VariableFont_wght.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C99389F42AA63218004D9E4C /* Outfit-VariableFont_wght.ttf in Resources */,
 				C9394A862AA513DF00EBCF42 /* Preview Assets.xcassets in Resources */,
 				C9394A832AA513DF00EBCF42 /* Assets.xcassets in Resources */,
 			);
@@ -269,6 +281,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"IntroScreen/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IntroScreen/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "\"\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -297,6 +311,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"IntroScreen/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IntroScreen/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "\"\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
