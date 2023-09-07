@@ -10,6 +10,7 @@ import SwiftUI
 struct IntroUi: View {
     let pages: [onPage]
     @State private var currentPageIndex = 0
+    @State var offset: CGSize = .zero
     
     init() {
         let introDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisi nulla purus neque quisque dictum dui. Accumsan fames adipiscing."
@@ -47,7 +48,59 @@ struct IntroUi: View {
             }
         }
         .padding()
+        .offset(offset)
+        .scaleEffect(getScaleAmmount())
+        .rotationEffect(Angle(degrees: getRotationAmmount()))
+        .gesture(
+            DragGesture()
+                .onChanged { value in
+                    withAnimation(.spring()) {
+                        offset = value.translation
+                    }
+                }
+                .onEnded{ value in
+                    withAnimation(.spring()) {
+                        offset = .zero
+                        let gestureThreshold: CGFloat = 50 // Adjust this value to control the sensitivity of the swipe gesture
+                        if abs(value.translation.width) > gestureThreshold {
+                            if value.translation.width > 0 && currentPageIndex > 0 {
+                                currentPageIndex -= 1 // Swipe right
+                            } else if value.translation.width < 0 && currentPageIndex < pages.count - 1 {
+                                currentPageIndex += 1 // Swipe left
+                            }
+                        }
+                    }
+                }
+        )
     }
+    
+    func withSwipeAnimation(forward: Bool) {
+            withAnimation(.spring()) {
+                offset = .zero
+                if forward && currentPageIndex < pages.count - 1 {
+                    currentPageIndex += 1
+                } else if !forward && currentPageIndex > 0 {
+                    currentPageIndex -= 1
+                }
+            }
+        }
+    
+    func getScaleAmmount() -> CGFloat {
+        let max = UIScreen.main.bounds.width / 2
+        let currentAmmount = abs(offset.width)
+        let persentage = currentAmmount / max
+        return 1.0 - min(persentage, 0.6) * 0.5
+    }
+    
+    func getRotationAmmount() -> Double {
+        let max = UIScreen.main.bounds.width / 2
+        let currentAmmount = offset.width
+        let persentage = currentAmmount / max
+        let persentageAsDouble = Double(persentage)
+        let maxAngle: Double = 10
+        return persentageAsDouble * maxAngle
+    }
+    
 }
 
 struct onPage {
@@ -89,7 +142,7 @@ struct contentView: View {
     var introduction: String
     var description: String
     var imageSize: CGSize
-    var pageCount: Int  // Added pageCount property
+    var pageCount: Int
     @Binding var currentPageIndex: Int
     
     var body: some View {
@@ -153,7 +206,9 @@ struct nextButton: View {
     
     var body: some View {
         Button(action: {
-            currentPageIndex += 1
+            withAnimation {
+                currentPageIndex += 1
+            }
         }, label: {
             ZStack {
                 Rectangle()
@@ -172,3 +227,4 @@ struct nextButton: View {
         .padding()
     }
 }
+
